@@ -84,7 +84,7 @@ stdenv.mkDerivation (finalAttrs: {
   };
 
   meta = {
-    description = "SVG-based Qt5 theme engine plus a config tool and extra themes";
+    description = "SVG-based theme engine for ${if isQt5 then "Qt5" else "Qt6"}" + lib.optionalString (!isQt5) " (including config tool)";
     homepage = "https://github.com/tsujan/Kvantum";
     license = lib.licenses.gpl3Plus;
     platforms = lib.platforms.linux;
